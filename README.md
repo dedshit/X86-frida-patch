@@ -39,3 +39,9 @@ https://github.com/dedshit/X86-frida-patch/assets/62318734/b0032b7d-761e-411d-a3
   - [ ] **EXTRACT**
   - [ ] **INSERT CUSTOM WATERMARK**
 
+ soon remaining features will be unlocked in next release
+
+
+
+https://github.com/dedshit/X86-frida-patch/assets/62318734/5780d1a2-db73-4809-9202-c01225267b6a
+
