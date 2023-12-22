@@ -46,6 +46,23 @@ function Patches(){
     }
   });
 
+	ADDR.set(Addr(1164560), {
+    onEnter: function (_args) {
+      let counttt = 0;
+      console.log("Patching Digital Signature FUNCTION");
+      while(true){
+        if (counttt++ === 97){
+          Memory.patchCode(Addr(1164560).add(counttt), 5, function(code){
+            const cw = new X86Writer(code);
+            cw.putTestRegReg("ecx","ecx");
+            cw.flush();
+          });
+          break;
+        }
+      }
+    }
+  });
+	
   for (const [addr, conf] of ADDR.entries()){
     Interceptor.attach(addr, conf);
   }
