@@ -35,7 +35,7 @@ https://github.com/dedshit/X86-frida-patch/assets/62318734/b0032b7d-761e-411d-a3
       - [X] *IMAGE TO PDF*
   - [X] **SPLIT**
   - [X] **MERGE**
-  - [ ] **DIGITAL SIGNATURE**
+  - [x] **DIGITAL SIGNATURE**
   - [x] **EXTRACT**
   - [ ] **INSERT CUSTOM WATERMARK**
 
