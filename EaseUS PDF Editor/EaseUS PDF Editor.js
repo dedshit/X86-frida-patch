@@ -1,6 +1,7 @@
 /* Unlocked All Trial limitations
         by dedshit
 */
+
 const EASEUS_PDF_EDITOR = Process.enumerateModules()[0];
 
 function hex(addr) {
@@ -13,9 +14,16 @@ function Addr(addr){
   return rva(hex(addr));
 }
 
-PageExtract_Pagesplit()
+const Mem = () => (
+  {
+    TextSection: rva(0x1000), 
+    TextSectionSize: 3014656
+  }
+);
+
+PageExtract_Pagesplit(Mem().TextSection, Mem().TextSectionSize)
 Patches()
-WATERMARK(0x1B2EEF, 0x1000)
+WATERMARK(0x1B2EEF, Mem().TextSection, Mem().TextSectionSize)
 
 function Patches(){
   const ADDR = new Map();
@@ -69,14 +77,12 @@ function Patches(){
   }
 }
 
-function WATERMARK(offset, size){
+function WATERMARK(offset, txtsec, size){
   const WATERMARK = rva(offset)
-  const TextSection = rva(size)
-  const TextSectionSize = 3014656
-  Memory.protect(ptr(TextSection), TextSectionSize, "rwx")
+  Memory.protect(ptr(txtsec), size, "rwx")
   console.log("WATERMARK patched")
   Memory.writeByteArray(WATERMARK, [0x84, 0xC9])
-  Memory.protect(ptr(TextSection), TextSectionSize, "rx")
+  Memory.protect(ptr(txtsec), size, "rx")
 }
 
 Memory.scan(EASEUS_PDF_EDITOR.base, EASEUS_PDF_EDITOR.size, '80 7D  F3  00', {
@@ -92,13 +98,8 @@ Memory.scan(EASEUS_PDF_EDITOR.base, EASEUS_PDF_EDITOR.size, '80 7D  F3  00', {
     }
 });
 
-function PageExtract_Pagesplit(){
-  const _startAddr_ = 0xDE0EC0
-  const _endAddr_ = 0xDFBD2F
-  const MEMORY_RIGHTS = 'rwx'
-  for (var address = _startAddr_; address < _endAddr_; address += 4){
-    Memory.protect(ptr(address), 4, MEMORY_RIGHTS)
-  }
+function PageExtract_Pagesplit(txtsec, size){
+	Memory.protect(ptr(txtsec), size, "rwx")
   Memory.scan(EASEUS_PDF_EDITOR.base, EASEUS_PDF_EDITOR.size, '80 ??  ?? ?? ?? ??  00', {
     onMatch: (address, _size) => {
       let addr = address.toString().slice(-4);
@@ -109,6 +110,10 @@ function PageExtract_Pagesplit(){
         console.log("PATCHING Extract FUNCTION");
         Memory.writeByteArray(address, [0x80, 0xDA, 0x8B, 0x00, 0x00, 0x00, 0x01]);
       }
+    },
+		
+		onComplete: () => {
+      Memory.protect(ptr(txtsec), size, "rx")
     }
   });
 }
