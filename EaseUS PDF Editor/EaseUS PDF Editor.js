@@ -21,9 +21,8 @@ const Mem = () => (
   }
 );
 
-PageExtract_Pagesplit(Mem().TextSection, Mem().TextSectionSize)
 Patches()
-WATERMARK(0x1B2EEF, Mem().TextSection, Mem().TextSectionSize)
+Watermark(0x1B2EEF, Mem().TextSection, Mem().TextSectionSize)
 
 function Patches(){
   const ADDR = new Map();
@@ -44,9 +43,9 @@ function Patches(){
         if (counttt++ === 83){
           if (Instruction.parse(Addr(1160000).add(counttt)).mnemonic === "cmp"){
             Memory.patchCode(Addr(1160000).add(counttt), 3, function(code){
-            	const cw = new X86Writer(code);
-              	cw.putBytes([0x38, 0x5B, 0x74]);
-              	cw.flush();
+              const cw = new X86Writer(code);
+              cw.putBytes([0x38, 0x5B, 0x74]);
+              cw.flush();
             });
           }
           break;
@@ -55,10 +54,10 @@ function Patches(){
     }
   });
 
-	ADDR.set(Addr(1164560), {
+  ADDR.set(Addr(1164560), {
     onEnter: function (_args) {
       let counttt = 0;
-      console.log("Patching Digital Signature FUNCTION");
+      console.log("BYPASSING digital sign FUNCTION");
       while(true){
         if (counttt++ === 97){
           Memory.patchCode(Addr(1164560).add(counttt), 5, function(code){
@@ -71,35 +70,27 @@ function Patches(){
       }
     }
   });
-	
+
   for (const [addr, conf] of ADDR.entries()){
     Interceptor.attach(addr, conf);
   }
 }
 
-function WATERMARK(offset, txtsec, size){
-  const WATERMARK = rva(offset)
-  Memory.protect(ptr(txtsec), size, "rwx")
-  console.log("WATERMARK patched")
-  Memory.writeByteArray(WATERMARK, [0x84, 0xC9])
-  Memory.protect(ptr(txtsec), size, "rx")
-}
-
 Memory.scan(EASEUS_PDF_EDITOR.base, EASEUS_PDF_EDITOR.size, '80 7D  F3  00', {
-    onMatch: (address, size) => {
-      if (address.toString().slice(-4) === '7f13'){
-        console.log("PATCHING OCR FUNCTION");
-        Memory.patchCode(address, size, code => {
-          	const cw = new X86Writer(code);
-       	  	cw.putBytes([0x80, 0x7D, 0x00, 0x00]);
-       	  	cw.flush();
-       });
-      }
+  onMatch: (address, size) => {
+    if (address.toString().slice(-4) === '7f13'){
+      console.log("PATCHING OCR FUNCTION");
+      Memory.patchCode(address, size, code => {
+        const cw = new X86Writer(code);
+       	cw.putBytes([0x80, 0x7D, 0x00, 0x00]);
+       	cw.flush();
+      });
     }
+  }
 });
 
 function PageExtract_Pagesplit(txtsec, size){
-	Memory.protect(ptr(txtsec), size, "rwx")
+  Memory.protect(ptr(txtsec), size, "rwx")
   Memory.scan(EASEUS_PDF_EDITOR.base, EASEUS_PDF_EDITOR.size, '80 ??  ?? ?? ?? ??  00', {
     onMatch: (address, _size) => {
       let addr = address.toString().slice(-4);
@@ -111,9 +102,19 @@ function PageExtract_Pagesplit(txtsec, size){
         Memory.writeByteArray(address, [0x80, 0xDA, 0x8B, 0x00, 0x00, 0x00, 0x01]);
       }
     },
-		
-		onComplete: () => {
+    
+    onComplete: () => {
       Memory.protect(ptr(txtsec), size, "rx")
     }
   });
 }
+
+function Watermark(offset, txtsec, size){
+  const Watermark = rva(offset)
+  Memory.protect(ptr(txtsec), size, "rwx")
+  console.log("Watermark patched")
+  Memory.writeByteArray(Watermark, [0x84, 0xC9])
+  Memory.protect(ptr(txtsec), size, "rx")
+}
+
+PageExtract_Pagesplit(Mem().TextSection, Mem().TextSectionSize)
