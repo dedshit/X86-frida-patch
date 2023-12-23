@@ -37,9 +37,9 @@ https://github.com/dedshit/X86-frida-patch/assets/62318734/b0032b7d-761e-411d-a3
   - [X] **MERGE**
   - [x] **DIGITAL SIGNATURE**
   - [x] **EXTRACT**
-  - [ ] **INSERT CUSTOM WATERMARK**
+  - [X] **INSERT CUSTOM WATERMARK**
 
- soon remaining features will be unlocked in next release
+ All features are unlocked
 
 
 
