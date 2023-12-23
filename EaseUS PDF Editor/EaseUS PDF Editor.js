@@ -15,6 +15,7 @@ function Addr(addr){
 
 PageExtract_Pagesplit()
 Patches()
+WATERMARK(0x1B2EEF, 0x1000)
 
 function Patches(){
   const ADDR = new Map();
@@ -66,6 +67,16 @@ function Patches(){
   for (const [addr, conf] of ADDR.entries()){
     Interceptor.attach(addr, conf);
   }
+}
+
+function WATERMARK(offset, size){
+  const WATERMARK = rva(offset)
+  const TextSection = rva(size)
+  const TextSectionSize = 3014656
+  Memory.protect(ptr(TextSection), TextSectionSize, "rwx")
+  console.log("WATERMARK patched")
+  Memory.writeByteArray(WATERMARK, [0x84, 0xC9])
+  Memory.protect(ptr(TextSection), TextSectionSize, "rx")
 }
 
 Memory.scan(EASEUS_PDF_EDITOR.base, EASEUS_PDF_EDITOR.size, '80 7D  F3  00', {
