@@ -45,3 +45,12 @@ https://github.com/dedshit/X86-frida-patch/assets/62318734/b0032b7d-761e-411d-a3
 
 https://github.com/dedshit/X86-frida-patch/assets/62318734/5780d1a2-db73-4809-9202-c01225267b6a
 
+
+## Proxifier {*Portable Edition*}
+
+
+   - [ ] **Unlimited Trial till your death**
+   - [ ] **Removed Splash Screen**
+   - [ ] **Need to Flush Dns Cache**
+   
+
