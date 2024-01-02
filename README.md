@@ -59,5 +59,9 @@ https://github.com/dedshit/X86-frida-patch/assets/62318734/5780d1a2-db73-4809-92
 https://github.com/dedshit/X86-frida-patch/assets/62318734/671427e0-fcde-4a57-9d19-0ddc43ac3db7
 
 
-   
 
+## MedCalc
+
+
+   - [x] **15 Days Trial NagScreen removed**
+   - [x] **No more License verification check**
