@@ -65,7 +65,7 @@ https://github.com/dedshit/X86-frida-patch/assets/62318734/671427e0-fcde-4a57-9d
 
    - [x] **15 Days Trial NagScreen removed**
    - [x] **No more License verification check**
-   - [ ] **Full Screen by default**
+   - [x] **Full Screen by default (_OPTIONAL_)**
 
 
 
