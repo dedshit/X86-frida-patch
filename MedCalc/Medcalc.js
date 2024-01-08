@@ -1,3 +1,7 @@
+/*
+  No more Trial Check & Useless FullScreen by Default
+            By Dedshit
+*/
 const MedCalc = Process.enumerateModules()[0];
 
 function rva(addr) {
@@ -15,6 +19,7 @@ const Text = new Object (
 )
 
 medcalc(Text.Section, Text.SectionSize, Text.TrialFunc)
+FullScreen(Text.Section, Text.SectionSize)
 
 function medcalc(TextSection, TextSectionSize, address) {
 
@@ -36,3 +41,20 @@ function medcalc(TextSection, TextSectionSize, address) {
   });
 
 }
+
+function FullScreen(TextSection, TextSectionSize, address=rva(0x48DE)) {
+  
+  Interceptor.attach(address, {
+
+    onEnter () {
+      Memory.protect(TextSection, TextSectionSize, "rwx")
+      Memory.writeByteArray(address.add(0x107), [0x83, 0x3D, 0x20, 0x73, 0x6A, 0x00, 0x00])
+    },
+
+    onLeave () {
+      Memory.protect(TextSection, TextSectionSize, "rx")
+    }
+
+  });
+}
+
