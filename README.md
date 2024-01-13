@@ -74,6 +74,12 @@ https://github.com/dedshit/X86-frida-patch/assets/62318734/671427e0-fcde-4a57-9d
 https://github.com/dedshit/X86-frida-patch/assets/62318734/57b864e6-5476-458e-bb6f-ec96a23f0296
 
 
+## YogaDns 
+
+   - [x] **Unlimited Trial beyond 31 days**
+   - [ ] **automatic flush dns cache**
+   - [x] **No more trial check**
+
 
 ## Ultdata by Tenorshare
 
