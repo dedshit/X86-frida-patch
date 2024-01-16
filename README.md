@@ -80,6 +80,14 @@ https://github.com/dedshit/X86-frida-patch/assets/62318734/57b864e6-5476-458e-bb
    - [ ] **automatic flush dns cache**
    - [x] **No more trial check**
 
+## SPEQTA GST
+
+   - [ ] **Unlimited GSTIN**
+   - [ ] **Unlimited Trial Usage**
+
+  ![speqta-gst](https://github.com/dedshit/X86-frida-patch/assets/62318734/5941e34b-fcb1-4c25-9aba-306e0703f067)
+
+
 
 ## Ultdata by Tenorshare
 
