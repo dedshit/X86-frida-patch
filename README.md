@@ -77,7 +77,7 @@ https://github.com/dedshit/X86-frida-patch/assets/62318734/57b864e6-5476-458e-bb
 ## YogaDns 
 
    - [x] **Unlimited Trial beyond 31 days**
-   - [ ] **automatic flush dns cache**
+   - [x] **automatic flush dns cache**
    - [x] **No more trial check**
 
 ## CareUEyes
