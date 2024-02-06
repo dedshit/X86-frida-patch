@@ -80,6 +80,13 @@ https://github.com/dedshit/X86-frida-patch/assets/62318734/57b864e6-5476-458e-bb
    - [ ] **automatic flush dns cache**
    - [x] **No more trial check**
 
+## CareUEyes
+
+   - [ ] **7 days trial removed**
+   - [ ] **Removed Activate Tab**
+  
+
+
 ## SPEQTA GST
 
    - [ ] **Unlimited GSTIN**
