@@ -82,8 +82,13 @@ https://github.com/dedshit/X86-frida-patch/assets/62318734/57b864e6-5476-458e-bb
 
 ## CareUEyes
 
-   - [ ] **7 days trial removed**
-   - [ ] **Removed Activate Tab**
+   - [x] **7 days trial removed**
+   - [x] **Removed Activate Tab**
+         
+
+https://github.com/dedshit/X86-frida-patch/assets/62318734/94c48a1e-6480-40cd-8384-560ddddc58a3
+
+
   
 
 
