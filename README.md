@@ -92,26 +92,19 @@ https://github.com/dedshit/X86-frida-patch/assets/62318734/1d8cf487-5c69-4ee5-b3
 
 
 
+## Adobe Premiere Pro 2025
 
-  
-
-
-## SPEQTA GST
-
-   - [ ] **Unlimited GSTIN**
-   - [ ] **Unlimited Trial Usage**
-
-  ![speqta-gst](https://github.com/dedshit/X86-frida-patch/assets/62318734/5941e34b-fcb1-4c25-9aba-306e0703f067)
+   - [x] **No subscription window**
+   - [x] **Activate trial from official Adobe & install whatever shit you want then cancel the trial**
+   - [x] **If you are too lazy to run this shit then just patch it `B0 00 C3`**
+         
+  #### P.S. Its from registration.dll (?NGLEnabled@Registration@@YA_NXZ)
 
 
 
-## Ultdata by Tenorshare
 
-    
-   #### *Before*
-  ![IMG_20240105_233300](https://github.com/dedshit/X86-frida-patch/assets/62318734/3ae35d80-29c3-4bf1-b793-29c4b22c9789)
+https://github.com/user-attachments/assets/91706050-e8b9-4c6b-95c7-587d56492c0f
 
-   #### *After*
-   ![IMG_20240105_233234](https://github.com/dedshit/X86-frida-patch/assets/62318734/ca00e055-9e70-4d81-bd40-7b9c613c6d27)
 
-  # Writing Frida script for .NET Application is pretty much complicated compared to C++ application . Soon i will create that
+
+
