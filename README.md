@@ -111,3 +111,11 @@ https://github.com/user-attachments/assets/91706050-e8b9-4c6b-95c7-587d56492c0f
 
   - [x] **No more shitty Watermark**
   - [ ] **Removed 2 mins Record screen Limit**
+
+
+
+
+
+https://github.com/user-attachments/assets/52ef05c7-adbb-45f8-ad73-c8abdd7da238
+
+
