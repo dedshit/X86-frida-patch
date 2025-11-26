@@ -107,4 +107,7 @@ https://github.com/user-attachments/assets/91706050-e8b9-4c6b-95c7-587d56492c0f
 
 
 
+## DouWan 
 
+  - [x] **No more shitty Watermark**
+  - [ ] **Removed 2 mins Record screen Limit**
