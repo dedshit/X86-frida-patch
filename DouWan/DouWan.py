@@ -61,6 +61,33 @@ function ScriptShapeHook() {
     }
 }
 
+function RecordLimitHook() {
+    const mainModule = Process.getModuleByName("DouWan.exe");
+    const functionAddress = mainModule.base.add(0x19D50);
+    send("[+] Hook attached to time-limit handler  @ " + functionAddress);
+    Interceptor.attach(functionAddress, {
+        onEnter: function(args) {
+            Stalker.follow(Process.getCurrentThreadId(), {
+                transform: function(iterator) {
+                    let instruction = iterator.next();
+                    do {
+                        if (instruction.address.equals(functionAddress.add(0x8b))) {
+                            iterator.putCallout(function(context) {
+                                context.r14 = 0x0;
+                            });
+                        }
+                        iterator.keep();
+                    } while ((instruction = iterator.next()) !== null);
+                }
+            });
+        },
+        onLeave: function(retval) {
+            Stalker.unfollow(Process.getCurrentThreadId());
+        }
+    });
+    send("[+] Bypassed record limit");
+}
+
 function monitorForDllLoad() {
     let attemptCount = 0;
     function checkForDll() {
@@ -78,6 +105,7 @@ function monitorForDllLoad() {
     setTimeout(checkForDll, 1000);
 }
 monitorForDllLoad();
+RecordLimitHook();
 """
 
 def get_current_time():
@@ -189,4 +217,5 @@ def main():
         print(format_message(f"[{get_current_time()}] [-] Service error: {e}"))
 
 if __name__ == "__main__":
+
     main()
