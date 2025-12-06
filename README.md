@@ -121,7 +121,7 @@ https://github.com/user-attachments/assets/52ef05c7-adbb-45f8-ad73-c8abdd7da238
 
 ## Adobe After Effects 2025
 
-   - [x] **License check bypass more likely shit one**
+   - [x] **License check**
    - [x] **Splash screen (optional)**
 
 
