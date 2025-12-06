@@ -121,5 +121,10 @@ https://github.com/user-attachments/assets/52ef05c7-adbb-45f8-ad73-c8abdd7da238
 
 ## Adobe After Effects 2025
 
-   - [ ] **License check bypass more likely shit one**
-   - [ ] **I fucking hate splash screen so soon no more Splash screen**
+   - [x] **License check bypass more likely shit one**
+   - [x] **Splash screen (optional)**
+
+
+
+https://github.com/user-attachments/assets/983cc5ae-6fc3-43ce-ade7-a5d0e88f71c8
+
